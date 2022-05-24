@@ -1,0 +1,15 @@
+name: Release drafter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-draft-release:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - .github/**
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+        os: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: npm install, build, and test
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm install
+          npm run test
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

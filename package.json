@@ -1,0 +1,83 @@
+{
+  "name": "@rocketspark/rocketspark-boilerplaye",
+  "version": "1.1.103",
+  "description": "Rocketspark Starter Kit for building libraries",
+  "main": "build/index.js",
+  "types": "build/types/index.d.ts",
+  "scripts": {
+    "start": "webpack serve --config webpack.config.demo.js",
+    "build": "webpack && tsc",
+    "build:demo": "webpack --config webpack.config.demo.js",
+    "test": "jest --silent",
+    "coverage": "npm run test -- --coverage",
+    "prepare": "npm run build",
+    "trypublish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rocketspark/ts-boilerplate"
+  },
+  "author": "Lee Reichardt <lee.reichardt@rocketspark.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocketspark/ts-boilerplate/issues"
+  },
+  "homepage": "https://github.com/rocketspark/ts-boilerplate",
+  "keywords": [
+    "library",
+    "starter",
+    "es6"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.0",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-transform-typescript": "^7.18.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.18.0",
+    "@types/jest": "^27.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "@vanilla-extract/babel-plugin": "^1.1.6",
+    "@vanilla-extract/css": "^1.7.0",
+    "@vanilla-extract/webpack-plugin": "^2.1.10",
+    "babel-loader": "^8.2.5",
+    "babel-preset-minify": "^0.5.2",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint": "^8.16.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "install": "^0.13.0",
+    "jest": "^28.1.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "npm": "^8.10.0",
+    "prettier": "^2.6.2",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "typescript": "^4.6.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "4.9.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
+      "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  }
+}
